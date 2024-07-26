@@ -80,6 +80,36 @@ orderObj.createTableRow =function(row1,row2){
     "</td><td>"+orderValue+
     "</td></tr>"
 }
+orderObj.createRow =function(...rows){
+
+    var tbodyElemnt =document.querySelector("tbody")
+
+
+    //destructuring
+    rows.forEach((eachRow,idx)=>{
+
+        const {orderId,customerName,orderValue}=eachRow
+
+        let col1 =document.createElement('td');
+        col1.textContent=orderId
+
+        let col2 =document.createElement('td');
+        col2.textContent=customerName
+
+        let col3 =document.createElement('td');
+        col3.textContent=orderValue
+        
+        var row = document.createElement('tr');
+
+        row.appendChild(col1)
+        row.appendChild(col2)
+        row.appendChild(col3)
+
+        tbodyElemnt.append(row)
+        
+    })
+   
+}
 
 const orderList =[
     {"orderId":101,"customerName":'ramesh','orderValue':45000},
@@ -87,7 +117,8 @@ const orderList =[
 ]
 const [order1,order2]= orderList
 
-orderObj.createTableRow(...orderList)
+//orderObj.createTableRow(...orderList)
+orderObj.createRow(order1,order2)
 orderObj.createList('Ramesh','Suresh',"Magesh")
 orderObj.addHeading();
 orderObj.addImage('images/logo.png')
