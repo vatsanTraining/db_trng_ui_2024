@@ -13,3 +13,10 @@ ul>li{
     font-style: italic;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+#footpara::first-letter{
+
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
