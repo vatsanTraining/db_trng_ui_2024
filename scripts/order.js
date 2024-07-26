@@ -24,11 +24,11 @@ orderObj.addImage = function(imageRef){
  // Attach an moveover to the image and change the border
 // use an annonymous call back function and also a named call back function
 
-orderObj.handleMouseOver = function(){
+orderObj.handleMouseOver = function(borderSize,borderColor){
 
     var imgElement =document.querySelector("#logo");
-
-    imgElement.setAttribute('style','border:5px solid red')
+    var styleValue ='border:'+borderSize+'px solid '+ borderColor
+    imgElement.setAttribute('style',styleValue)
 
 }
 orderObj.attchEventToLogo = function(){
@@ -41,12 +41,12 @@ orderObj.attchEventToLogo = function(){
     // })
 
     // observe the method is not having circle braces ()
-    imgElement.addEventListener('mouseover',orderObj.handleMouseOver)
+    imgElement.addEventListener('mouseover',orderObj.handleMouseOver(7,'yellow'))
 }
 
 
 orderObj.addHeading();
 orderObj.addImage('images/logo.png')
 orderObj.attchEventToLogo();
-console.log(orderObj.handleMouseOver)
+//console.log(orderObj.handleMouseOver)
 //console.log(orderObj.handleMouseOver())
