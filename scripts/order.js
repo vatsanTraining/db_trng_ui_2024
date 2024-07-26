@@ -85,25 +85,21 @@ orderObj.createRow =function(...rows){
     var tbodyElemnt =document.querySelector("tbody")
 
 
-    //destructuring
     rows.forEach((eachRow,idx)=>{
 
-        const {orderId,customerName,orderValue}=eachRow
+       // const {orderId,customerName,orderValue}=eachRow
 
-        let col1 =document.createElement('td');
-        col1.textContent=orderId
+        let values =Object.values(eachRow);
 
-        let col2 =document.createElement('td');
-        col2.textContent=customerName
-
-        let col3 =document.createElement('td');
-        col3.textContent=orderValue
-        
         var row = document.createElement('tr');
 
-        row.appendChild(col1)
-        row.appendChild(col2)
-        row.appendChild(col3)
+        for(let i=0;i<values.length;i++){
+
+            let col =document.createElement('td');
+            col.textContent=values[i]
+            row.appendChild(col)
+
+        }
 
         tbodyElemnt.append(row)
         
@@ -111,17 +107,14 @@ orderObj.createRow =function(...rows){
    
 }
 
-const orderList =[
+let orderList =[
     {"orderId":101,"customerName":'ramesh','orderValue':45000},
     {"orderId":102,"customerName":'shiva','orderValue':55000}
 ]
 const [order1,order2]= orderList
 
-//orderObj.createTableRow(...orderList)
 orderObj.createRow(order1,order2)
 orderObj.createList('Ramesh','Suresh',"Magesh")
 orderObj.addHeading();
 orderObj.addImage('images/logo.png')
 orderObj.attchEventToLogo();
-//console.log(orderObj.handleMouseOver)
-//console.log(orderObj.handleMouseOver())
