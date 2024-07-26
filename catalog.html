@@ -5,27 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog</title>
+    <link rel="stylesheet" href="styles/style.css">
+
     <style>
+        @media print {
+            img {
+                display: none
+            }
+        }
+
+        @media screen and (min-width:600px) {
+            .container {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .child {
+                border: 5px solid blue;
+                border-radius: 5px;
+
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .container {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .child {
+                border: 2px solid blue;
+                border-radius: 5px;
+
+            }
+        }
+
         img:hover {
 
             border: 1px solid blue;
         }
+
+        /* .container {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .child {
+            border: 2px solid blue;
+            border-radius: 5px;
+
+        } */
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Product Catalog</h1>
+    <header class="centerText">
+        <h1 class="centerText">Product Catalog</h1>
     </header>
     <section>
         <h4>Electronics</h4>
         <div class="container">
-            <div><img src="images/product1.jpeg" alt="Tv"></div>
-            <div><img src="images/product2.jpeg" alt="Computer"></div>
-            <div><img src="images/product3.jpeg" alt="iphone"></div>
-            <div><img src="images/product4.jpeg" alt="inverter"></div>
-            <div><img src="images/product5.jpeg" alt="printer"></div>
+            <div class="child"><img src="images/product1.jpeg" alt="Tv"></div>
+            <div class="child"><img src="images/product2.jpeg" alt="Computer"></div>
+            <div class="child"><img src="images/product3.jpeg" alt="iphone"></div>
+            <div class="child"><img src="images/product4.jpeg" alt="inverter"></div>
+            <div class="child"><img src="images/product5.jpeg" alt="printer"></div>
         </div>
     </section>
     <footer></footer>
