@@ -26,22 +26,28 @@ orderObj.addImage = function(imageRef){
 
 orderObj.handleMouseOver = function(borderSize,borderColor){
 
-    var imgElement =document.querySelector("#logo");
-    var styleValue ='border:'+borderSize+'px solid '+ borderColor
-    imgElement.setAttribute('style',styleValue)
+    return function(){
 
+        var imgElement =document.querySelector("#logo");
+        var styleValue ='border:'+borderSize+'px solid '+ borderColor
+        imgElement.setAttribute('style',styleValue)
+    
+    }
+   
 }
 orderObj.attchEventToLogo = function(){
 
     var imgElement =document.querySelector("#logo");
 
-    // imgElement.addEventListener('mouseover',function(){
+    imgElement.addEventListener('mouseover',orderObj.handleMouseOver(7,'red'))
 
-    //     imgElement.setAttribute('style','border:5px solid red')
-    // })
 
-    // observe the method is not having circle braces ()
-    imgElement.addEventListener('mouseover',orderObj.handleMouseOver(7,'yellow'))
+    imgElement.addEventListener('mouseout',function(){
+
+        imgElement.setAttribute('style','1px solid brown')
+    })
+
+    // observe the method if its  having circle braces ()
 }
 
 
