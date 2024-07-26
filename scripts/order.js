@@ -66,6 +66,28 @@ orderObj.createList =function(...staffList){
     staffList.forEach(this.createListItem)
 
 }
+
+orderObj.createTableRow =function(row1,row2){
+
+    //destructuring
+    const {orderId,customerName,orderValue}=row1
+
+    var tbodyElemnt =document.querySelector("tbody")
+
+    tbodyElemnt.innerHTML=
+     "<tr><td>"+orderId+
+    "</td><td>"+customerName+
+    "</td><td>"+orderValue+
+    "</td></tr>"
+}
+
+const orderList =[
+    {"orderId":101,"customerName":'ramesh','orderValue':45000},
+    {"orderId":102,"customerName":'shiva','orderValue':55000}
+]
+const [order1,order2]= orderList
+
+orderObj.createTableRow(...orderList)
 orderObj.createList('Ramesh','Suresh',"Magesh")
 orderObj.addHeading();
 orderObj.addImage('images/logo.png')
