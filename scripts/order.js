@@ -50,7 +50,23 @@ orderObj.attchEventToLogo = function(){
     // observe the method if its  having circle braces ()
 }
 
+orderObj.createListItem = (value) =>{
 
+    var list =document.querySelector("#staff")
+    var listItem = document.createElement('li')
+    listItem.textContent=value
+
+    list.append(listItem)
+
+}
+
+
+orderObj.createList =function(...staffList){
+
+    staffList.forEach(this.createListItem)
+
+}
+orderObj.createList('Ramesh','Suresh',"Magesh")
 orderObj.addHeading();
 orderObj.addImage('images/logo.png')
 orderObj.attchEventToLogo();
